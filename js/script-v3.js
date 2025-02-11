@@ -131,12 +131,12 @@ let totalDiscount = document.querySelector('.total-discount');
 // get price from input
 function getPrice(element, className) {
   const priceText = element.querySelector(className).textContent;
-  return parseFloat(priceText.replace('€', '').replace(',', '.'));
+  return parseFloat(priceText.replace('zł', '').replace(',', '.'));
 }
 
 // formating price to neccessary format
 function formatPrice(price) {
-  return price.toFixed(2).replace('.', ',') + '  €';
+  return (price % 1 === 0 ? price.toFixed(0) : price.toFixed(2).replace('.', ',')) + ' zł';
 }
 
 function handleRadioButtonChange(radioButton) {
